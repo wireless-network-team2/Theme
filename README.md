@@ -20,6 +20,8 @@
 3. 조명 제어
 4. 먹이 자동 급여
 5. 뚜껑 개폐
+
+![스마트어항](https://github.com/wireless-network-team2/Theme/assets/144095568/b4f1e513-b6a0-4040-bd08-e1d63a397abd)
 ### 필요 센서
    온도 센서
    pH센서
@@ -30,6 +32,8 @@
 ### 기능
 1. 텍스트->점자 변환
 2. 텍스트->음성 변환(TTS)
+
+![점자변환기](https://github.com/wireless-network-team2/Theme/assets/144095568/64473259-a6a5-48ca-a390-310c9ed32265)
 ### 필요 센서
 카메라 센서
     
