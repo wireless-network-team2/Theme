@@ -36,6 +36,8 @@
 3. 디스플레이 모듈
    
 4. 어항 https://www.coupang.com/vp/products/5498569772?itemId=8535038655&vendorItemId=75822462673&q=%EA%B5%90%EC%9C%A1%EC%9A%A9+%EC%96%B4%ED%95%AD&itemsCount=36&searchId=812ed168e7af414db32408b21cc3fd39&rank=22&isAddedCart=
+
+5. 참고자료 https://blog.naver.com/vgty3480/223263998114
 # 3. 점자 변환기
 ### 개요
    시각장애인이 일상에서 접할 수 있는 다양한 텍스트 정보를 점자로 변환하여 시각장애인의 정보 접근성을 높일 수 있다. 
