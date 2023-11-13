@@ -15,6 +15,8 @@
 4. 장애물 감지 및 회피: https://www.devicemart.co.kr/goods/view?no=1076851 (초음파 감지 센서)
 5. 충전: Qi 무선 충전 모듈
 6. 긴급 정지: 긴급 정치 스위치
+![image](https://github.com/wireless-network-team2/Theme/assets/113682873/d9b6a359-2392-4bec-9775-9531eea82974)
+
 # 2. 스마트 어항
 ### 개요
    수조의 상태와 수질을 측정하고 감별하여 어항을 관리해준다. 다양한 센서를 사용해 수조의 상태를 실시간으로 모니터링 할 수 있다.
