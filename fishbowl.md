@@ -7,6 +7,8 @@
 
 202144105 - 안태현
 
+202044084 - 박상우
+
 ### 개발 환경
 * 파이썬
 * 안드로이드 스튜디오
@@ -31,7 +33,11 @@
 
 ### 필요 물품
 * 서보 모터
+* 아두이노
+* LED
+* 점퍼선
 * 초음파 센서
+* 조도 센서
 * 디스플레이 모듈
 * 온도 센서 https://www.coupang.com/vp/products/317343206?itemId=1012197982&vendorItemId=5445821426&q=DS18B20&itemsCount=36&searchId=4285b177465248f498e0ce29d6137cf0&rank=8&isAddedCart=
 
