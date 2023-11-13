@@ -9,10 +9,10 @@
 5. 충전
 6. 긴급 정지
 ### 필요 모듈
-1. 통신부: https://www.devicemart.co.kr/goods/view?no=1361682(블루투스 모듈)
-2. 출력부: https://www.devicemart.co.kr/goods/view?no=1278835(모터 드라이버)
-3. 움직임 추적: https://www.devicemart.co.kr/goods/view?no=1321968(GPS 모듈), https://www.devicemart.co.kr/goods/view?no=1382903(나침반 센서)
-4. 장애물 감지 및 회피: https://www.devicemart.co.kr/goods/view?no=1076851(초음파 감지 센서)
+1. 통신부: https://www.devicemart.co.kr/goods/view?no=1361682 (블루투스 모듈)
+2. 출력부: https://www.devicemart.co.kr/goods/view?no=1278835 (모터 드라이버)
+3. 움직임 추적: https://www.devicemart.co.kr/goods/view?no=1321968 (GPS 모듈), https://www.devicemart.co.kr/goods/view?no=1382903 (나침반 센서)
+4. 장애물 감지 및 회피: https://www.devicemart.co.kr/goods/view?no=1076851 (초음파 감지 센서)
 5. 충전: Qi 무선 충전 모듈
 6. 긴급 정지: 긴급 정치 스위치
 # 2. 스마트 어항
