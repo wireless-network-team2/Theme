@@ -37,9 +37,7 @@
 * 아두이노
 * 카메라 센서
 * LED
-* 초음파 센서
 * 조도 센서
-* 디스플레이 모듈
 * 온도 센서 (https://www.coupang.com/vp/products/317343206?itemId=1012197982&vendorItemId=5445821426&q=DS18B20&itemsCount=36&searchId=4285b177465248f498e0ce29d6137cf0&rank=8&isAddedCart=)
 
 * pH센서(7.8~8.4) (https://www.coupang.com/vp/products/5935815333?itemId=10562806323&vendorItemId=78103184922&isAddedCart=)
