@@ -23,7 +23,10 @@
 - [ ] 수조 상태 모니터링
 - [ ] 수질 및 수위 측정
 - [ ] 조명 제어
-- [ ] 천장 자동 개폐
+- [x] 천장 자동 개폐
+
+![뚜껑 개폐](https://github.com/wireless-network-team2/Theme/assets/144095568/30661012-e84e-46be-8ed4-91ff71f6e3cc)
+
 - [x] 먹이 자동 급여
       
 ![회로도](https://github.com/wireless-network-team2/Theme/assets/144095568/0efc6401-3492-4830-a499-1ccd643ef1f5)
