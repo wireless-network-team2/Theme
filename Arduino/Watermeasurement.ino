@@ -16,7 +16,7 @@ void loop() {
   voltage = (rawValue / 1024.0) * 5.0;
 
   // 전압을 pH 값으로 변환 (이 부분은 pH 센서의 특정 데이터시트에 따라 달라질 수 있음)
-  pHValue = pHValue = 7 - (voltage - VOffset);  /* 여기에 전압을 pH로 변환하는 수식을 추가하세요 */;
+  pHValue = pHValue = 7 - (voltage - VOffset); 
 
   // 결과를 시리얼 모니터에 출력
   Serial.print("Raw Value: ");
