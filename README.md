@@ -26,7 +26,7 @@
 - [ ] 천장 자동 개폐
 - [ ] 먹이 자동 급여
       
-![먹이 급여 아두이노](https://github.com/wireless-network-team2/Theme/assets/144095568/8648ff0f-40e7-4395-8e09-7219e3f89683)
+![회로도](https://github.com/wireless-network-team2/Theme/assets/144095568/0efc6401-3492-4830-a499-1ccd643ef1f5)
 
 - [ ] 수조 상태 알림
 
