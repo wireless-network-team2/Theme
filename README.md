@@ -39,7 +39,11 @@
 
 ### 주요 기능
 - [ ] 수조 상태 모니터링
-- [ ] 수질 및 수위 측정
+- [ ] 수질 특정
+- [X] 수위 측정
+
+![수위센서](https://github.com/wireless-network-team2/Theme/assets/144095568/cc79163a-10f8-4fb3-8d6f-d2bc77d11aa2)
+
 - [x] 조명 제어
 
 ![조명 제어](https://github.com/wireless-network-team2/Theme/assets/144095568/51514692-87c0-4f27-a595-947f66eaefba)
