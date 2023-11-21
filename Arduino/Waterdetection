@@ -1,0 +1,22 @@
+int water_Pin = A5;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int val = analogRead(A5);
+  Serial.println(val);
+  delay(1000);
+
+  if(val >= 500){
+    Serial.println("물 넘침 위험"); //LED 빨강
+    delay(5000);
+  }
+  else if(val <= 100) {
+    Serial.println("물 부족 위험"); //LED 노랑
+    delay(5000);
+  }
+}
