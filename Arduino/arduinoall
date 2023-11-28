@@ -1,15 +1,51 @@
+#include <Servo.h>
+
+Servo myservo;
+
 int water_Pin = A5;
+int ServoPin = 10; //서보모터 핀
+int trig = 7; // 트리그 핀(초음파 센서 송신부)
+int echo = 6; // 에코 핀 (초음파 센서 수신부)
+float duration = 0, distance = 0; //초음파 센서를 통한 주기 및 거리 측정
+int Pos = 0; // 서보 모터 각도 설정
 
 void setup() 
 {
- pinMode(13, OUTPUT);                     // 디지털 13번핀을 출력모드로 설정
- Serial.begin(9600);
+  pinMode(trig, OUTPUT); 
+  pinMode(echo, INPUT);
+  pinMode(13, OUTPUT);                     // 디지털 13번핀을 출력모드로 설정
+  Serial.begin(9600);
 }
 
 void loop()
 {
+  digitalWrite(trig, HIGH); // 초음파 발생하여 주기 측정
+  delay(10);
+  digitalWrite(trig, LOW);	
+  
+  duration = pulseIn(echo, HIGH);// pulseIn() 함수를 이용한 초음파 센서 주기 (ms) 반환
+  distance = ((float)(340 * duration)) / 10000 / 2; //cm 단위로 거리 변경
+
+  if(distance < 15){ //거리가 15cm 미만일떄
+    myservo.attach(ServoPin);
+    Pos = 150;
+    myservo.write(Pos); // 서보모터 제어
+    //Pos = 0;
+    //.write(Pos);
+    //delay(1000);
+    myservo.detach();
+  }
+  else{
+    myservo.attach(ServoPin);
+    Pos = 0;
+    myservo.write(Pos);
+    myservo.detach();
+  }
+  delay(1000);
+
   int readValue = analogRead(A0);         //조도센서에서 읽어들이는 값
   int val = analogRead(A5);             //읽어온 센서값 출력
+  Serial.println(val);
   if(readValue > 500){                     //읽어온 센서값 500 기준점
     digitalWrite(13, HIGH);
     
@@ -19,10 +55,13 @@ void loop()
   }
   delay(1000);  
   if(val >= 500){
-    
+   // Serial.println("물 넘침 위험");
   }
   else if(val <= 100) {
+    //Serial.println("물 부족 위험");
   }
   delay(1000);
+
+  
  
 }
