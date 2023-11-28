@@ -26,26 +26,24 @@ void loop()
   duration = pulseIn(echo, HIGH);// pulseIn() 함수를 이용한 초음파 센서 주기 (ms) 반환
   distance = ((float)(340 * duration)) / 10000 / 2; //cm 단위로 거리 변경
 
-  if(distance < 15){ //거리가 15cm 미만일떄
+  if(distance < 50){ //거리가 15cm 미만일떄
     myservo.attach(ServoPin);
     Pos = 150;
     myservo.write(Pos); // 서보모터 제어
-    //Pos = 0;
-    //.write(Pos);
-    //delay(1000);
+    delay(1000);
     myservo.detach();
   }
   else{
     myservo.attach(ServoPin);
     Pos = 0;
     myservo.write(Pos);
+    delay(1000);
     myservo.detach();
   }
-  delay(1000);
 
   int readValue = analogRead(A0);         //조도센서에서 읽어들이는 값
   int val = analogRead(A5);             //읽어온 센서값 출력
-  Serial.println(val);
+  //Serial.println(val);
   if(readValue > 500){                     //읽어온 센서값 500 기준점
     digitalWrite(13, HIGH);
     
@@ -58,7 +56,7 @@ void loop()
    // Serial.println("물 넘침 위험");
   }
   else if(val <= 100) {
-    //Serial.println("물 부족 위험");
+  //  Serial.println("물 부족 위험");
   }
   delay(1000);
 
