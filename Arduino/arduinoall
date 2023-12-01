@@ -88,22 +88,24 @@ void loop()
   delay(1000);
 
   // 먹이 급여
-  if(digitalRead(LittlePin) == HIGH){ //버튼이 눌렸는지 확인
-    feedservo.attach(ServoFPin);
+if (Serial.available() > 0) {
+    char receivedChar = Serial.read();
+    if (receivedChar == 'L') {
     Pos1 = 30; //서보모터 각도 지정
     feedservo.write(Pos1); //서보모터 제어
     Pos1 = 0; //서보모터 각도 초기값으로 지정 
     feedservo.write(Pos1);
     feedservo.detach();
   }
-  else if(digitalRead(HalfPin) == HIGH) {
+  else if (receivedChar == 'H') {
     feedservo.attach(ServoFPin);
     Pos1 = 60;
     feedservo.write(Pos1);
     Pos1 = 0;
     feedservo.write(Pos1);
     feedservo.detach();
-  }else if(digitalRead(FullPin) == HIGH) {
+  }
+  else if (receivedChar == 'F') {
     feedservo.attach(ServoFPin);
     Pos1 = 90;
     feedservo.write(Pos1);
@@ -111,6 +113,7 @@ void loop()
     feedservo.write(Pos1);
     feedservo.detach();
   }
+}
 
     //수질 센서
 
