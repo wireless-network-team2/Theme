@@ -1,16 +1,21 @@
 #include <Servo.h>
+#include <LiquidCrystal_I2C.h>
+#include <Wire.h>
 
 Servo myservo;
+Servo feedservo;
 
 int water_Pin = A5;
 int ServoPin = 10; //서보모터 핀
+int ServoFPin = 11;
 int trig = 7; // 트리그 핀(초음파 센서 송신부)
 int echo = 6; // 에코 핀 (초음파 센서 수신부)
 float duration = 0, value = 0; //초음파 센서를 통한 주기 및 거리 측정
 int Pos = 0; // 서보 모터 각도 설정
-const int LittlePin = 5; //버튼 핀
-const int HalfPin = 6;
-const int FullPin = 7;
+int Pos1 = 0;
+const int LittlePin = 3; //버튼 핀
+const int HalfPin = 4;
+const int FullPin = 5;
 const int analogPin = A4; // pH 센서가 연결된 아날로그 핀
 float voltage; //전압
 float pHValue; //pH값
@@ -18,7 +23,9 @@ float pHValue; //pH값
 void setup() 
 {
   myservo.attach(ServoPin);
+  feedservo.attach(ServoFPin);
   myservo.write(Pos);
+  feedservo.write(Pos1);
   pinMode(LittlePin, INPUT);
   pinMode(HalfPin, INPUT);
   pinMode(FullPin, INPUT);
@@ -39,18 +46,18 @@ void loop()
   value = ((float)(340 * duration)) / 10000 / 2; //cm 단위로 거리 변경
   Serial.println(value);
 
-  if(value < 50){ //거리가 15cm 미만일떄
+  if(value < 15){ //거리가 15cm 미만일떄
     myservo.attach(ServoPin);
     Pos = 150;
     myservo.write(Pos); // 서보모터 제어
-    delay(1000);
+    delay(200);
     myservo.detach();
   }
   else{
     myservo.attach(ServoPin);
     Pos = 0;
     myservo.write(Pos);
-    delay(1000);
+    delay(200);
     myservo.detach();
   }
 
@@ -66,40 +73,43 @@ void loop()
   else if(value1 < 500) {
     digitalWrite(13, LOW);                //빛이 밝으면 가로등을 끈다.
   }
-  Serial.println(value1);
+  //Serial.println(value1);
   delay(1000);  
 
   //수위 센서
   if(value2 >= 500){
-    Serial.println(value2)
+    Serial.println(value2);
     Serial.println("물 넘침 위험");
   }
   else if(value2 <= 100) {
-    Serial.println(value2)
+    Serial.println(value2);
     Serial.println("물 부족 위험");
   }
   delay(1000);
 
   // 먹이 급여
   if(digitalRead(LittlePin) == HIGH){ //버튼이 눌렸는지 확인
-    Pos = 30; //서보모터 각도 지정
-    myservo.write(Pos); //서보모터 제어
-    delay(1000); 
-    Pos = 0; //서보모터 각도 초기값으로 지정 
-    myservo.write(Pos);
+    feedservo.attach(ServoFPin);
+    Pos1 = 30; //서보모터 각도 지정
+    feedservo.write(Pos1); //서보모터 제어
+    Pos1 = 0; //서보모터 각도 초기값으로 지정 
+    feedservo.write(Pos1);
+    feedservo.detach();
   }
   else if(digitalRead(HalfPin) == HIGH) {
-    Pos = 60;
-    myservo.write(Pos);
-    delay(1000);
-    Pos = 0;
-    myservo.write(Pos);
+    feedservo.attach(ServoFPin);
+    Pos1 = 60;
+    feedservo.write(Pos1);
+    Pos1 = 0;
+    feedservo.write(Pos1);
+    feedservo.detach();
   }else if(digitalRead(FullPin) == HIGH) {
-    Pos = 90;
-    myservo.write(Pos);
-    delay(1000);
-    Pos = 0;
-    myservo.write(Pos);
+    feedservo.attach(ServoFPin);
+    Pos1 = 90;
+    feedservo.write(Pos1);
+    Pos1 = 0;
+    feedservo.write(Pos1);
+    feedservo.detach();
   }
 
     //수질 센서
@@ -111,7 +121,7 @@ void loop()
   voltage = (rawValue / 1024.0) * 5.0;
 
   // 전압을 pH 값으로 변환 (이 부분은 pH 센서의 특정 데이터시트에 따라 달라질 수 있음)
-  pHValue = pHValue = 7 - (voltage - VOffset); 
+  pHValue = pHValue = 7 - (voltage - 0.18); 
 
   // 결과를 시리얼 모니터에 출력
   Serial.println(pHValue);
