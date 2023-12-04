@@ -3,16 +3,16 @@
 #include <Wire.h>
 
 Servo myservo;
-Servo feedservo;
+Servo fservo;
 
 int water_Pin = A5;
 int ServoPin = 10; //서보모터 핀
-int ServoFPin = 11;
+int AServoPin = 11;
 int trig = 7; // 트리그 핀(초음파 센서 송신부)
 int echo = 6; // 에코 핀 (초음파 센서 수신부)
 float duration = 0, value = 0; //초음파 센서를 통한 주기 및 거리 측정
 int Pos = 0; // 서보 모터 각도 설정
-int Pos1 = 0;
+int APos = 0;
 const int LittlePin = 3; //버튼 핀
 const int HalfPin = 4;
 const int FullPin = 5;
@@ -23,9 +23,7 @@ float pHValue; //pH값
 void setup() 
 {
   myservo.attach(ServoPin);
-  feedservo.attach(ServoFPin);
   myservo.write(Pos);
-  feedservo.write(Pos1);
   pinMode(LittlePin, INPUT);
   pinMode(HalfPin, INPUT);
   pinMode(FullPin, INPUT);
@@ -39,7 +37,7 @@ void loop()
 {
   // 천장 개폐
   digitalWrite(trig, HIGH); // 초음파 발생하여 주기 측정
-  delay(10);
+  delay(1000);
   digitalWrite(trig, LOW);	
   
   duration = pulseIn(echo, HIGH);// pulseIn() 함수를 이용한 초음파 센서 주기 (ms) 반환
@@ -47,18 +45,14 @@ void loop()
   Serial.println(value);
 
   if(value < 15){ //거리가 15cm 미만일떄
-    myservo.attach(ServoPin);
-    Pos = 150;
-    myservo.write(Pos); // 서보모터 제어
-    delay(200);
-    myservo.detach();
+    fservo.attach(AServoPin);
+    APos = 150;
+    fservo.write(Pos); // 서보모터 제어
   }
   else{
-    myservo.attach(ServoPin);
-    Pos = 0;
-    myservo.write(Pos);
-    delay(200);
-    myservo.detach();
+    fservo.attach(ServoPin);
+    APos = 0;
+    fservo.write(Pos);
   }
 
   
@@ -91,27 +85,22 @@ void loop()
 if (Serial.available() > 0) {
     char receivedChar = Serial.read();
     if (receivedChar == 'L') {
-    Pos1 = 30; //서보모터 각도 지정
-    feedservo.write(Pos1); //서보모터 제어
-    Pos1 = 0; //서보모터 각도 초기값으로 지정 
-    feedservo.write(Pos1);
-    feedservo.detach();
+    Pos = 90; //서보모터 각도 지정
+    myservo.write(Pos); //서보모터 제어
+    Pos = 0; //서보모터 각도 초기값으로 지정 
+    myservo.write(Pos);
   }
   else if (receivedChar == 'H') {
-    feedservo.attach(ServoFPin);
-    Pos1 = 60;
-    feedservo.write(Pos1);
-    Pos1 = 0;
-    feedservo.write(Pos1);
-    feedservo.detach();
+    Pos = 120;
+    muservo.write(Pos);
+    Pos = 0;
+    myservo.write(Pos);
   }
   else if (receivedChar == 'F') {
-    feedservo.attach(ServoFPin);
-    Pos1 = 90;
-    feedservo.write(Pos1);
-    Pos1 = 0;
-    feedservo.write(Pos1);
-    feedservo.detach();
+    Pos = 180;
+    myservo.write(Pos);
+    Pos = 0;
+    myservo.write(Pos);
   }
 }
 
