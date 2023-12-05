@@ -83,3 +83,5 @@ void loop(){
 
   Serial.println(a);                 //측정값에 따라 나온 결과값 출력
 }
+
+조도센서의 받는 빛의 양의 따라 LED 출력제어
