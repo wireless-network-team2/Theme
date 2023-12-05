@@ -72,12 +72,12 @@ void loop()
 
   //수위 센서
   if(value2 >= 500){
-    Serial.println(value2);
-    Serial.println("물 넘침 위험");
+    //Serial.println(value2);
+    //Serial.println("물 넘침 위험");
   }
   else if(value2 <= 100) {
-    Serial.println(value2);
-    Serial.println("물 부족 위험");
+    //Serial.println(value2);
+    //Serial.println("물 부족 위험");
   }
   delay(1000);
 
@@ -116,13 +116,12 @@ if (Serial.available() > 0) {
   pHValue = pHValue = 7 - (voltage - 0.18); 
 
   // 결과를 시리얼 모니터에 출력
-  Serial.println(pHValue);
+  //Serial.println(pHValue);
 
   String pHValue1 = String(pHValue);
   String LevelValue = String(value2);
 
-  Serial.print(pHValue1 + ",");
-  Serial.println(LevelValue);
+  Serial.print(pHValue1 + "," +LevelValue);
 
   delay(1000); // 1초 동안 대기
 
